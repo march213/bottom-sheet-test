@@ -1,9 +1,7 @@
 import React, {useRef, useEffect} from 'react';
-import {StyleSheet, View, Dimensions} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import {FlatList} from 'react-native-gesture-handler';
-
-const {height} = Dimensions.get('window');
 
 const LeaderBottomSheet = ({
   toggleLeaderBoardSheet,
@@ -21,9 +19,9 @@ const LeaderBottomSheet = ({
   return (
     <Modalize
       onClose={() => toggleLeaderBoardSheet(false)}
-      withOverlay={false}
       ref={modalizeRef}
       handlePosition="inside"
+      modalTopOffset={10}
       handleStyle={styles.handle}>
       <View style={styles.container}>
         <View style={styles.tabs} />
