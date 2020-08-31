@@ -5,7 +5,11 @@ import {FlatList} from 'react-native-gesture-handler';
 
 const {height} = Dimensions.get('window');
 
-const GameBottomSheet = ({toggleBottomSheet, shouldShow}) => {
+const GameBottomSheet = ({
+  toggleBottomSheet,
+  toggleLeaderBoardSheet,
+  shouldShow,
+}) => {
   const modalizeRef = useRef(null);
 
   useEffect(() => {
@@ -49,7 +53,7 @@ const GameBottomSheet = ({toggleBottomSheet, shouldShow}) => {
         {/* Should bring up another modal */}
         <TouchableOpacity
           style={styles.leaderboard}
-          onPress={() => console.log('show leaderboard')}
+          onPress={() => toggleLeaderBoardSheet(true)}
         />
         <View style={styles.divider} />
         <View style={styles.sectionTitle} />
