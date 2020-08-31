@@ -5,16 +5,19 @@ import {FlatList} from 'react-native-gesture-handler';
 
 const {height} = Dimensions.get('window');
 
-const GameBottomSheet = () => {
+const GameBottomSheet = ({toggleBottomSheet, shouldShow}) => {
   const modalizeRef = useRef(null);
 
   useEffect(() => {
-    modalizeRef.current?.open();
+    if (shouldShow) {
+      modalizeRef.current?.open();
+    }
     return () => {};
-  }, []);
+  }, [shouldShow]);
 
   return (
     <Modalize
+      onClose={() => toggleBottomSheet(false)}
       withOverlay={false}
       ref={modalizeRef}
       snapPoint={height - 360}

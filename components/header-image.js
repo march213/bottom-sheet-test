@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,9 +12,11 @@ const styles = StyleSheet.create({
   },
 });
 
-const HeaderImage = () => {
+const HeaderImage = ({toggleBottomSheet}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => toggleBottomSheet(true)}>
       <Image
         style={styles.image}
         source={{
@@ -22,7 +25,7 @@ const HeaderImage = () => {
         }}
         resizeMode="cover"
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

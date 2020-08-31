@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 
 import HeaderImage from './components/header-image';
@@ -13,10 +13,16 @@ const styles = StyleSheet.create({
 });
 
 const App = () => {
+  const [shouldShow, toggleBottomSheet] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderImage />
-      <GameBottomSheet />
+      <HeaderImage
+        toggleBottomSheet={(payload) => toggleBottomSheet(payload)}
+      />
+      <GameBottomSheet
+        shouldShow={shouldShow}
+        toggleBottomSheet={toggleBottomSheet}
+      />
     </SafeAreaView>
   );
 };
