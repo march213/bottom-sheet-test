@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 });
 
 const App = () => {
-  const [shouldShow, toggleBottomSheet] = useState(false);
+  const [shouldShow, toggleBottomSheet] = useState(true);
   const [shouldShowLeaderBoardSheet, toggleLeaderBoardSheet] = useState(false);
   return (
     <SafeAreaView style={styles.container}>

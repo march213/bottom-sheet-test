@@ -1,15 +1,10 @@
 import React, {useRef, useEffect} from 'react';
-import {StyleSheet, View, Dimensions, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {Modalize} from 'react-native-modalize';
-import {FlatList} from 'react-native-gesture-handler';
 
 const {height} = Dimensions.get('window');
 
-const GameBottomSheet = ({
-  toggleBottomSheet,
-  toggleLeaderBoardSheet,
-  shouldShow,
-}) => {
+const GameBottomSheet = ({toggleBottomSheet, shouldShow}) => {
   const modalizeRef = useRef(null);
 
   useEffect(() => {
@@ -25,9 +20,11 @@ const GameBottomSheet = ({
       withOverlay={false}
       ref={modalizeRef}
       snapPoint={height - 360}
-      handlePosition="inside"
+      closeSnapPointStraightEnabled={false}
+      childrenStyle={styles.container}
       handleStyle={styles.handle}>
-      <View style={styles.container}>
+      <>
+        <View style={{width: 36, height: 36, backgroundColor: 'black'}} />
         <View style={styles.title} />
         <View style={styles.subtitle} />
         <View style={styles.button} />
@@ -36,38 +33,53 @@ const GameBottomSheet = ({
         <View style={styles.divider} />
         <View style={styles.sectionTitle} />
         <View style={styles.sectionSubtitle} />
-        {/* Dont really know if we need to use FlatList here, instead of the simple map */}
-        <FlatList
-          style={styles.list}
-          renderItem={({item}) => <View style={styles.itemRound} key={item} />}
-          data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-          horizontal
-          ItemSeparatorComponent={() => (
-            <View style={styles.itemRoundSeparator} />
-          )}
-        />
+        <View style={styles.title} />
+        <View style={styles.subtitle} />
+        <View style={styles.button} />
+        <View style={styles.description} />
+        <View style={styles.banner} />
+        <View style={styles.divider} />
+        <View style={styles.sectionTitle} />
+        <View style={styles.sectionSubtitle} />
+        <View style={styles.title} />
+        <View style={styles.subtitle} />
+        <View style={styles.button} />
+        <View style={styles.description} />
+        <View style={styles.banner} />
+        <View style={styles.divider} />
+        <View style={styles.sectionTitle} />
+        <View style={styles.sectionSubtitle} />
+        <View style={styles.title} />
+        <View style={styles.subtitle} />
+        <View style={styles.button} />
+        <View style={styles.description} />
+        <View style={styles.banner} />
+        <View style={styles.divider} />
+        <View style={styles.sectionTitle} />
+        <View style={styles.sectionSubtitle} />
+        <View style={styles.title} />
+        <View style={styles.subtitle} />
+        <View style={styles.button} />
+        <View style={styles.description} />
+        <View style={styles.banner} />
+        <View style={styles.divider} />
+        <View style={styles.sectionTitle} />
+        <View style={styles.sectionSubtitle} />
+        <View style={styles.title} />
+        <View style={styles.subtitle} />
+        <View style={styles.button} />
+        <View style={styles.description} />
+        <View style={styles.banner} />
+        <View style={styles.divider} />
+        <View style={styles.sectionTitle} />
+        <View style={styles.sectionSubtitle} />
         <View style={styles.callToAction1} />
         <View style={styles.callToAction2} />
         <View style={styles.divider} />
         <View style={styles.sectionTitle} />
-        {/* Should bring up another modal */}
-        <TouchableOpacity
-          style={styles.leaderboard}
-          onPress={() => toggleLeaderBoardSheet(true)}
-        />
         <View style={styles.divider} />
         <View style={styles.sectionTitle} />
-        {/* Dont really know if we need to use FlatList here, instead of the simple map */}
-        <FlatList
-          style={styles.list}
-          renderItem={({item}) => <View style={styles.itemRect} key={item} />}
-          data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-          horizontal
-          ItemSeparatorComponent={() => (
-            <View style={styles.itemRectSeparator} />
-          )}
-        />
-      </View>
+      </>
     </Modalize>
   );
 };
